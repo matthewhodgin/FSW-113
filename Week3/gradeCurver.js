@@ -65,7 +65,8 @@ function curveGrades() {
 
     aryGrades.forEach(applyBell)
 
-    var grades = document.innerText(grades)
+    var grades = document.innerText('grades')
 
     // write the value of aryGrades to the grades div in the HTML document
 }
+66,72,100,88,92,74,72,94,80,78
