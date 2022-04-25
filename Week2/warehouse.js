@@ -25,9 +25,9 @@ const parts = [
 // list of each part number and qty for check-off in the "detailsList" element
 
 var partsSelector = document.querySelector("#detailsList")
-for (var i = 0; i < parts.length; i++) {
-partsSelector.innerHTML += `<input type = "checkbox"> ${parts[i].partNbr} : ${parts[i].qty}</input> <br/>`
-}
+parts.forEach((partNbr) => {
+    partsSelector.innerHTML += `<input type = "checkbox"> ${partNbr.partNbr} : ${partNbr.qty}</input> <br/>`
+});
 
 // if parts requiring special handling exist (in aisle B3), list of items needing 
 // special packaging in the "specialPackaging" element, else remove element
@@ -50,25 +50,25 @@ else {document.querySelector("#hazardousMaterials").remove()
 }
 
 // if all items in the order are small parts (aisle H1), then let employee know that they should take 
-// a basket and go dirctly to aisle H1
+// a basket and go directly to aisle H1
 
 
-const isSmall = parts.find((checkAisle) => checkAisle.aisle == 'H1')
+const isSmall = parts.every((checkAisle) => checkAisle.aisle == 'H1')
 if(isSmall){
 document.querySelector("#smallItemsOnly").innerText += ' : Take Basket, go directly to H1'
 }
 else {document.querySelector("#smallItemsOnly").remove()
 }
 
-
-// if there are large items (anthing in aisles S, T, or U), then let the employee know in the "forkliftNeeded"
+// if there are large items (anything in aisles S, T, or U), then let the employee know in the "forkliftNeeded"
 // element that they will need to reserve a forklift, else remove the element
 
-const isLarge = parts.find((checkAisle) => checkAisle.aisle == 'S' || 'T' || 'U')
+const isLarge = parts.some(checkAisle => checkAisle.aisle == 'S' || checkAisle.aisle == 'T' || checkAisle.aisle == 'U')
+console.log(isLarge)
 if(isLarge){
 document.querySelector("#forkLiftNeeded").innerText += ' : Forklift Needed!'
 }
-else {document.querySelector("forkLiftNeeded").remove()
+else {document.querySelector("#forkLiftNeeded").remove()
 }
 
 // sum up the total number of parts and append that number to the text already in "totalItems" element
