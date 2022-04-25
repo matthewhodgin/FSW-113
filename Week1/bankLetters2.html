@@ -31,20 +31,21 @@
             { fname: 'Reggie', balance: 0, rate: 7.2 }
         ]
 
-        var letterDiv = document.getElementById('letterDiv')
+        var letterDiv = document.querySelector('letterDiv')
 
         for (i = 0; i < customers.length; i++) {
-            var div = document.createElement("div"); div.className = 'letter'
-                if(customers[i].balance > 0){
-                div.innerText = `Hello ${customers[i].fname}, greetings from ${bankName}. Because you are such a great customer, we're lowering your interest rate to ${customers[i].rate}%.`
-            }
-                else if(customers[i].balance < 0){
+            var div = document.createElement("div"); 
+            div.className = 'letter'
+            if(customers[i].balance > 0){
                 div.innerText = `Hello ${customers[i].fname}, this is an attempt to collect a debt owed to ${bankName}. Your account is past due by the amount of ${customers[i].balance}.`
             }
-                else {
+            else if(customers[i].balance < 0){
+                div.innerText = `Hello ${customers[i].fname}, greetings from ${bankName}. Because you are such a great customer, we're lowering your interest rate to ${customers[i].rate}%.`
+            }
+            else {
                 div.innerText = `Hello ${customers[i].fname}, greetings from ${bankName}. Your balance is current. No need for action until next month.`
             }
-                letterDiv.append(div)
+            letterDiv.append(div)
 }
     </script>
 
@@ -57,3 +58,4 @@
 
 // Display all these letters in the letterDiv element. -->
 </html>
+
