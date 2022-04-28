@@ -3,8 +3,10 @@
 // create an event listener that calls the curveGrade() function when the Curve It!! button is clicked
 
 // create an event listener that resets the scores and grades to their defaults when the Reset button is clicked
+var mean; 
 
 function applyBell(grade, index, ary) {
+
     switch (true) {
         case grade >= (mean + (gradeSlice * 2)): 
             ary[index] = 'A'
@@ -33,7 +35,9 @@ function convertArray(obj) {
 }
 
 function logReset(event) {
-    log.textContent = `Form reset! Time stamp: ${event.timeStamp}`;
+    const grades = document.querySelector('#grades')
+    grades.innerText = aryGrades
+    fromElement.reset()
   }
   
   const submit = document.getElementById('submit');
@@ -46,27 +50,33 @@ function logReset(event) {
 // separate lines of code into single lines. It currently has 18 lines of code. Without counting  
 // empty lines, can you get the number of lines down to 8?
 
+
 function curveGrades() {
-    let sum = (accumulator, currentValue) => accumulator + currentValue
+    console.log(curveGrades)
+    const sum = (accumulator, currentValue) => accumulator + currentValue
 
-    let sumGrades = array => array.reduce(sum)
-    
-    var aryGrades = convertArray(document.querySelector('#scores'))
+    const sumGrades = array => array.reduce(sum)
 
-    var minGrade = aryGrades.reduce((a, b) => Math.min(a, b))
+    let aryGrades = convertArray(document.querySelector('#scores'))
+
+    const minGrade = aryGrades.reduce((a, b) => Math.min(a, b))
+    console.log(minGrade)
   
-    var maxGrade = aryGrades.reduce((a, b) => Math.max(a, b))
-    
-    var mean = sumGrades(aryGrades) / aryGrades.length
+    const maxGrade = aryGrades.reduce((a, b) => Math.max(a, b))
+    console.log(maxGrade)
 
-    var range = maxGrade - minGrade
+    mean = sumGrades(aryGrades) / aryGrades.length
+    console.log(mean)
+
+    let range = maxGrade - minGrade
 
     gradeSlice = range / 5
 
     aryGrades.forEach(applyBell)
 
-    var grades = document.innerText('grades')
+    const grades = document.querySelector('#grades')
+    grades.innerText = aryGrades
+    console.log(aryGrades)
 
-    // write the value of aryGrades to the grades div in the HTML document
 }
-66,72,100,88,92,74,72,94,80,78
+// 66,72,100,88,92,74,72,94,80,78
