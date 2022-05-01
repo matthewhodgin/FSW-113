@@ -12,16 +12,18 @@ document.querySelector('#submit').addEventListener(
     })
 
 
-function chkLang(langs) {
-    let result = false
-
-
     // use an array method to check whether the user included 'JavaScript' in their
     // list of languages
 
-    langs.forEach((object) => {
-        if (object.value == 'javascript' || 'JavaScript')
-        result = true}) 
+
+function chkLang(langs) {
+
+    // let result = false
+    // langs.forEach((object) => {
+    //     if (object.value.toLowerCase() == lang.toLowerCase())
+    //         result = true}) 
+
+    let result = langs.some(object => object.value.toLowerCase() == lang.toLowerCase())
     
     let obj = document.querySelector('#TestResult')
     if (result) 
