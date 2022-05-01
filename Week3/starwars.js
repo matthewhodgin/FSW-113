@@ -32,21 +32,21 @@ function updateInfo(queryType, data) {
     var dataLabel2 = document.getElementById("dataLabel2")
     var dataValue2 = document.getElementById("dataValue2")
     if(queryType === 'people'){
-        dataLabel1.textContent = 'Name'
-        dataValue1.textContent = data.name
-        dataLabel2.textContent = 'Eye Color'
+        dataLabel1.textContent = 'Name:'
+        dataValue1.textContent = data.name 
+        dataLabel2.textContent = 'Eye Color:'
         dataValue2.textContent = data.eye_color
 
     } else if(queryType === 'planets'){
-        dataLabel1.textContent = 'Name'
+        dataLabel1.textContent = 'Name:'
         dataValue1.textContent = data.name
-        dataLabel2.textContent = 'Climate'
+        dataLabel2.textContent = 'Climate:'
         dataValue2.textContent = data.climate
 
     } else {
-        dataLabel1.textContent = 'Name'
+        dataLabel1.textContent = 'Name:'
         dataValue1.textContent = data.name
-        dataLabel2.textContent = 'Starship Class'
+        dataLabel2.textContent = 'Starship Class:'
         dataValue2.textContent = data.starship_class
 }
 }

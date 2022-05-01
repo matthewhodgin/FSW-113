@@ -2,7 +2,9 @@
   border: black 2px solid;
   border-radius: 8px;
   padding: 5px;
-  width: 400px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   /* 
   use the CSS grid to display all five <div> elements contained within
   the 'queryWrapper' <div> on a row next to each other 
@@ -14,7 +16,7 @@
   border-radius: 8px;
   background-color: silver;
   padding: 5px;
-  width: 400px;
+  width: 500px;
   display: grid;
   grid-template-columns: 2fr 2fr;
   /* 
