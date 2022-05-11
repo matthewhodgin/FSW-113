@@ -45,6 +45,13 @@ document.querySelector('#system').addEventListener("change", function(){
     const sysID = document.querySelector('#system').value
     getSystems(sysID, document.querySelector('#subSystem'))
 }
+)
+document.querySelector('#resetBtn').addEventListener("click", function(){
+    document.querySelector('#reporterByDiv').value = "";
+    document.querySelector('#systemDiv').value = "";
+    document.querySelector('#subSystemDiv').value = "";
+    document.querySelector('#bugDescrDiv').value = ""
+}
 
     // This eventListener responds to a change to the "system" select element by passing the selected value from the "system" element 
     // to the "getSystems()" function along with the "subSystem" DOM element so that the second drop-down list is populated with the 

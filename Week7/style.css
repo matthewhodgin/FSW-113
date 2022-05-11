@@ -7,6 +7,7 @@
 body {
     background-color: black;
     background-image: url("./images/wallpaper.jpg");
+    color: seashell;
     
 }
 
@@ -47,13 +48,3 @@ button {
     border-radius: 8px;
     padding: 10px;
 }
-
-/* .reportWrapper {
-    border: black 2px solid;
-    border-radius: 8px;
-    padding: 5px;
-    width: 500px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin: 0 auto;
-} */
